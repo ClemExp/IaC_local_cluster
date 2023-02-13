@@ -1,0 +1,14 @@
+# Terraform temp files
+*.tfstate
+*.backup
+*.hcl
+**/.terraform/
+*.info
+
+#kind
+new-cluster-config
+
+# ignore these tmp local directories
+k8s/
+helm/tmp/
+*DS_Store

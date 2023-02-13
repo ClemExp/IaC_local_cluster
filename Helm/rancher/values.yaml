@@ -1,0 +1,13 @@
+rancher:
+  replicas: 1
+  ingress:
+    # enabling the ingress will create traefik routes, however we want to ensure for localhost that the
+    # PathPrefix is included to access rancher dashboard and api so will use ingress in templates folder instead
+    enabled: false
+    # specifying tls source to not consult cert-manager as we import traefik.me wildcard certificates
+    tls:
+      source: secret
+      secretName: traefik-tls-cert
+
+  hostname: rancher.traefik.me
+  bootstrapPassword: admin

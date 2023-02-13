@@ -1,0 +1,10 @@
+apiVersion: v2
+name: rancher
+description: A Helm chart for Kubernetes
+version: 0.2.0
+appVersion: "2.7.1"
+
+dependencies:
+  - name: rancher
+    version: 2.7.1
+    repository: "https://releases.rancher.com/server-charts/stable"

@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rancher-tls
+  namespace: cattle-system
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`rancher.traefik.me`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`) || PathPrefix(`/`))
+      services:
+        - name: rancher
+          port: 80
+  tls: # This route uses TLS
+    secretName: traefik-tls-cert

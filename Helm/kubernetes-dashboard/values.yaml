@@ -1,0 +1,35 @@
+kubernetes-dashboard:
+
+  replicaCount: 1
+  enableInsecureLogin: true
+
+  #Creates ingress route on traefik - traefik set as default ingress controller for cluster
+  ingress:
+    enabled: true
+    # annotations:
+    #   kubernetes.io/ingress.class: traefik
+    #   kubernetes.io/tls-acme: "true"
+    #   ingress.kubernetes.io/ssl-redirect: "true"
+    #   traefik.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    hosts:
+      - kd.traefik.me
+    paths:
+      - /
+
+# https://github.com/kubernetes/dashboard/blob/master/docs/common/dashboard-arguments.md
+  extraArgs:
+    - --enable-skip-login
+    - --enable-insecure-login
+    - --api-log-level=DEBUG
+
+  protocolHttp: true
+
+  service:
+    type: ClusterIP
+    externalPort: 80
+
+  metricsScraper:
+    enabled: true
+
+  metrics-server:
+    enable: true
