@@ -4,7 +4,7 @@ resource "null_resource" "rancher_deploy" {
   depends_on = [null_resource.wait_for_ingress_traefik]
 
   provisioner "local-exec" {
-    command = "helm install rancher ../Helm/rancher --values ../Helm/rancher/values.yaml --set varsubdomain='traefik.me' -n cattle-system"
+    command = "helm install rancher ../Helm/rancher --values ../Helm/rancher/values.yaml --set varsubdomain='traefik.me' -n tools"
     interpreter = local.is_windows ? ["PowerShell", "-Command"] : []
   }
 }
@@ -19,7 +19,7 @@ resource "null_resource" "wait_for_ingress_traefik" {
     # All jobs are given a label of "job-name" so you can filter based on whether the pod has that label
     command = <<EOF
       printf "\nWaiting for the traefik ingress controller...\n"
-      kubectl wait --selector='!job-name' --for=condition=ready --timeout=60s -n traefik --all pods
+      kubectl wait --selector='!job-name' --for=condition=ready --timeout=60s -n tools --all pods
     EOF
   }
 

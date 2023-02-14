@@ -1,0 +1,33 @@
+harbor:
+  harborAdminPassword: Harbor12345
+
+  externalURL: https://harbor.traefik.me
+
+  persistence:
+    enabled: false
+    persistentVolumeClaim:
+      registry:
+        storageClass: "backedup"
+      chartmuseum:
+        storageClass: "backedup"
+      jobservice:
+        storageClass: "backedup"
+      database:
+        storageClass: "backedup"
+      redis:
+        storageClass: "backedup"
+      trivy:
+        storageClass: "backedup"
+
+  expose:
+    tls:
+      source: secret
+      secretName: traefik-tls-cert
+    ingress:
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      hosts:
+        core: "harbor.traefik.me"
+        notary: "notary.harbor.traefik.me"

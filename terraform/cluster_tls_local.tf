@@ -8,11 +8,10 @@ resource "null_resource" "cluster_tls" {
     command = <<EOT
       set -e
       echo 'Applying TLS Config with kubectl...'
-      kubectl create namespace traefik
-      kubectl create namespace cattle-system
-      kubectl -n traefik create configmap traefik-cert --from-file=../certs/cert.pem
-      kubectl -n traefik create configmap traefik-key --from-file=../certs/privkey.pem
-      kubectl -n cattle-system create secret tls traefik-tls-cert --key=../certs/privkey.pem --cert=../certs/cert.pem
+      kubectl create namespace tools
+      kubectl -n tools create configmap traefik-cert --from-file=../certs/cert.pem
+      kubectl -n tools create configmap traefik-key --from-file=../certs/privkey.pem
+      kubectl -n tools create secret tls traefik-tls-cert --key=../certs/privkey.pem --cert=../certs/cert.pem
     EOT
   }
 }
