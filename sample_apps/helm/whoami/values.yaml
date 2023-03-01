@@ -2,10 +2,11 @@ replicaCount: 1
 
 image:
   repository: traefik/whoami
+  # to pull from harbor - have to first tag & push image, then create cluster secret
+  # <<<<kubectl create secret docker-registry docker-registry-creds --docker-server="registry.harbor.traefik.me" --docker-email=test123@example.com --docker-username=<harbor_user> --docker-password=<harobor_pass>
   #repository: harbor.traefik.me/library/whoami
   #imagePullSecrets:
   #  - name: docker-registry-credsv4
-  # <<<<kubectl create secret docker-registry docker-registry-creds --docker-server="registry.harbor.traefik.me" --docker-email=test123@example.com --docker-username=<harbor_user> --docker-password=<harobor_pass>
 
 serviceAccount:
   # Specifies whether a service account should be created

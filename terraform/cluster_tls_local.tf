@@ -9,9 +9,9 @@ resource "null_resource" "cluster_tls" {
       set -e
       echo 'Applying TLS Config with kubectl...'
       kubectl create namespace tools
-      kubectl -n tools create configmap traefik-cert --from-file=../certs/cert.pem
+      kubectl -n tools create configmap traefik-cert --from-file=../certs/fullchain.pem
       kubectl -n tools create configmap traefik-key --from-file=../certs/privkey.pem
-      kubectl -n tools create secret tls traefik-tls-cert --key=../certs/privkey.pem --cert=../certs/cert.pem
+      kubectl -n tools create secret tls traefik-tls-cert --key=../certs/privkey.pem --cert=../certs/fullchain.pem
     EOT
   }
 }

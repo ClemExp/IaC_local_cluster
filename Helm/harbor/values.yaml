@@ -20,9 +20,12 @@ harbor:
         storageClass: "backedup"
 
   expose:
+    type: ingress
     tls:
-      source: secret
-      secretName: traefik-tls-cert
+      enabled: true
+      certSource: secret
+      secret:
+        secretName: traefik-tls-cert
     ingress:
       annotations:
         kubernetes.io/ingress.class: traefik

@@ -47,7 +47,7 @@ traefik:
   volumeMounts:
     - name: traefik-cert
       mountPath: "/etc/ssl/certs/"
-      subPath: cert.pem
+      subPath: fullchain.pem
       readOnly: false
     - name: traefik-key
       mountPath: "/etc/ssl/certs/"
@@ -58,14 +58,14 @@ traefik:
       mountPath: "/config"
       type: configMap
     - name: traefik-cert
-      mountPath: "/etc/ssl/certs/cert.pem"
+      mountPath: "/etc/ssl/certs/fullchain.pem"
       type: configMap
     - name: traefik-key
       mountPath: "/etc/ssl/certs/privkey.pem"
       type: configMap
 
 # Following certificates are to be used by traefik - to be included in the dynamic config map
-certFile: "/etc/ssl/certs/cert.pem/cert.pem"
+certFile: "/etc/ssl/certs/fullchain.pem/fullchain.pem"
 keyFile: "/etc/ssl/certs/privkey.pem/privkey.pem"
 
 domain: traefik.me
