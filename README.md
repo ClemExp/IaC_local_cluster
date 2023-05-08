@@ -49,6 +49,18 @@ Terraform is HashiCorp's infrastructure as code tool. It lets you define resourc
 choco install terraform
 ```
 
+## Access details
+After installation tools are available via the following URLs
+
+| Service | URL  			      		     |
+|---------|---------------------------------------------------------------------|
+| Traefik | https://traefik.trafik.me/dashboard/#/ 		   | traefik/admin12345   |
+| Rancher | https://rancher.trafik.me/                   | admin/admin          |
+| Harbor  | https://harbor.trafik.me/ 	                 | admin/Harbor12345    |
+
+
+<br />
+
 ## Certificate management
 For local clusters it is easier to communicate via HTTP only, however several of the cluster tools we use do not work well (or at all) unless HTTPS is in place. This is the case for Rancher, K8s dashboard, image pulling from harbor etc.
 
