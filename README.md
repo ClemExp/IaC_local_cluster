@@ -52,7 +52,7 @@ choco install terraform
 ## Access details
 After installation tools are available via the following URLs
 
-| Service | URL  			      		     |
+| Service | URL  			      		                         | Access               |
 |---------|---------------------------------------------------------------------|
 | Traefik | https://traefik.trafik.me/dashboard/#/ 		   | traefik/admin12345   |
 | Rancher | https://rancher.trafik.me/                   | admin/admin          |
