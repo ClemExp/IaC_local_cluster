@@ -1,6 +1,6 @@
 # Kind & terraform: Local test repository
 
-This repo is for the automated (IaC) install & setup of a kind Kubernetes cluster in a local environment (can be on a laptop or VM).
+This repo is for an automated (IaC) install & setup of a kind Kubernetes cluster in a local environment (can be on a laptop or cloud VM).
 
 Repository can be run on Windows or Linux, with the baseline software requirements below pre-installed.
 
